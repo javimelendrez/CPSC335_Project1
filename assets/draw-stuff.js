@@ -49,38 +49,54 @@ function draw_grid( rctx, rminor, rmajor, rstroke, rfill  )
 //Draw one cell.
 function draw_cell (ctx, x, y)
 {
+	//border around cell
 	var stroke = 'transparent';
-	var  fill = 'red';
+	//fill color of cell
+	var fill = 'red';
+	//always save first
 	ctx.save();
+	//set stroke, fill, and line width of cell.
 	ctx.strokeStyle = stroke;
 	ctx.fillStyle = fill;
 	ctx.lineWidth = 0;
+	//generation variable, increases every row.
 	var gen = 0;
+	//get close to center on canvas
 	width = canvas.width - 210;
+	//create a rectangle at x, y, 10x10
 	ctx.rect(width,10,10,10);
+	//fill the rectangle
 	ctx.fill();
+	//always restore
 	ctx.restore();
 }
 
 function pick_next_cell(ctx,gen,x,y) {
+	//always save
 	ctx.save();
-	//ctx.fillStyle = 'red';
-	//width = canvas.width - 200;
+	//v_point is the vertical point from the center of the CURRENT generation.
 	var v_point = (gen*10) / 2;
 	v_point += 10;
+	//h_point is five pixels in, to center it in the CURRENT gen
 	var h_point = x - 5;
+	//just debug stuff
 	console.log("h_point: ",h_point);
 	console.log("v_point: ",v_point);
 	console.log("x: ", x);
 	console.log("y: ", y);
+	//data contains the points at h and v_point with a 1x1 pixel
+	//this is used to determine the color of the current cell.
 	var data = ctx.getImageData(h_point,v_point,1,1).data;
 	console.log(data);
 
 	while(h_point < 400) {
 		console.log("h_point: ",h_point);
+		//get current cell color data
 		data = ctx.getImageData(h_point,v_point,1,1).data;
 		console.log("data: ", data);
 
+		//if the first value in color r,g,b is 255, its red.
+		//this is basic detection of color.
 		if(data[0]==255) {
 			var words = "Red! @ h_point: "+h_point+" v_point: "+v_point;
 			alert(words);
@@ -94,6 +110,8 @@ function pick_next_cell(ctx,gen,x,y) {
 	ctx.restore();
 
 }
+
+// The following code is Siddarths.
 
 /*
 function draw_many_cells(ctx) {
@@ -156,33 +174,4 @@ function draw_many_cells(ctx) {
 
 	}
 }
-*/
-/*
-function draw_alt_cell (ctx)
-{
-	ctx.save();
-	gen = 0;
-	alt = 20;
-	fill = 'red';
-	while(gen < 40) {
-		console.log("Gen: " + gen);
-
-		for(var ix = 0; ix < canvas.width - 10; ix += alt)
-		{
-			var prev_gen = (gen > 10 && gen % 10 == 0) ? (gen*10-10) : (gen*10);
-			console.log("Prev_gen: " + prev_gen);
-
-			ctx.fillStyle = fill;
-			ctx.rect(ix, prev_gen, 10, 10);
-			ctx.fill();
-		}
-		gen++;
-		
-	}
-	ctx.restore();
-}
-*/
-/*
-var prv_gen = gen > 0 ? gen - 10 : gen;
-console.log(prv_gen);
 */
