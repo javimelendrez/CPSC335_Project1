@@ -14,19 +14,13 @@ var bitstr3 = next_bitstring(bitstr2);
 var bitstr4 = next_bitstring(bitstr3);
 var bitstr5 = next_bitstring(bitstr4);
 
-/*
-for(var col = 0; col < columns; col++)
-{
-	console.log(bitstr[col]);
-}
-*/
-
 function next_bitstring(bitstr) {
 
 	var new_bitstr = [];
 
 	for(var col = 0; col < columns; col++)
 	{
+		// lines 23 -> 34 determine the rules pattern
 		if(col-1 <= 0)
 			left = 0;
 		else
@@ -38,11 +32,8 @@ function next_bitstring(bitstr) {
 			right = 0;
 		else
 			right = bitstr[col+1];
-/*
-		console.log("L: ",left);
-		console.log("C: ",center);
-		console.log("R: ",right);
-*/
+
+		// this block deteremines the output
 		if(left == 1 && center == 1 && right == 1)
 			new_bitstr[col] = 0;
 		else if(left == 1 && center == 1 && right == 0)
@@ -75,7 +66,4 @@ document.writeln(bitstr2+"<br>");
 document.writeln(bitstr3+"<br>");
 document.writeln(bitstr4+"<br>");
 document.writeln(bitstr5+"<br>");
-
-
-
 </script>
