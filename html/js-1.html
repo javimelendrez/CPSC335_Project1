@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body><h1>Playing the HTML canvas</h1>
-<h4>Time-stamp: <2019-02-26 14:40:00></h4>
+<h4>Time-stamp: <2019-03-02 13:00:00></h4>
 
 <canvas id="grid" width="400" height="400"></canvas>
 
@@ -14,13 +14,17 @@
   var context = canvas.getContext( "2d" );
   
   draw_grid( context, 10, 50, 'white', 'yellow' );
+  
+  // Create a new bitstring for seed.
   var bs = new Array(40);
   for(var a = 0; a < bs.length; a++)
   {
     bs[a] = 0;
   }
+  // Set initial cell
   bs[19] = 1;
 
+  // Draw cells based on bitstring and generation.
   while(global_generation < 400)
   {
     for(var i = 0; i < bs.length; i++)
