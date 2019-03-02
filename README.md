@@ -16,6 +16,7 @@ William Au
 This project is to write a program to display the generational progress of Wolfram's Rule-90 cellular automaton. The program will be written in Javascript with an HTML web page for display. The cella "growth generations" will be shown in a 2D grid of black and white cells. Each row after the top will show the next generation.
 
 # CONTENTS
+js-1.html , new-draw-stuff.js , styles.css
 
 # EXTERNAL REQUIREMENTS
 Google Chrome Web Browser
