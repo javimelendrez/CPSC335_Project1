@@ -1,6 +1,7 @@
 var global_generation = 0;
 var columns = 40;
 
+// Default function to draw a 400x400 pixel canvas.
 function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
     rctx.save( );
     rctx.strokeStyle = rstroke;
@@ -28,29 +29,29 @@ function draw_grid(rctx, rminor, rmajor, rstroke, rfill) {
     rctx.restore( );
 }
 
+// When supplied with an initial seed bitstring
+// this function calculates the next generations bitstring.
 function next_bitstring(bitstr) {
 
     var new_bitstr = [];
     for(var col = 0; col < bitstr.length; col++)
     {
-        // lines 23 -> 34 determine the rules pattern
+    	// Check if we are at the starting column.
+    	// Adjust left, right, and center bits accordingly.
 		if(col == 0) {
 			left = 0;
 			center = bitstr[col];
 			right = bitstr[col+1];
-			//console.log("col: ", col);
 		}
 		else if(col == columns - 1)
 		{
 			left = bitstr[col-1];
 			center = bitstr[col];
 			right = 0;
-			//console.log("col: ",col);
 		} else {
 			left = bitstr[col-1];
 			center = bitstr[col];
 			right = bitstr[col+1];
-			//console.log	("col: ",)
 		}
 
         // this block deteremines the output
@@ -75,6 +76,7 @@ function next_bitstring(bitstr) {
     return new_bitstr;
 }
 
+// This function draws a cell at the specified x and y-coordinates.
 function draw_cell(ctx, x, y) {
     var stroke = "transparent";
     var fill = "red";
