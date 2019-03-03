@@ -3,13 +3,13 @@
 # Team ECW
 
 Bennett Lawrenz
-
+CWID: 889955969
 Liam Fitzpatrick
-
+CWID: 805485463
 Javier Melendrez
-
+CWID:  890653041
 Siddarth Krishnan
-
+CWID: 890189152
 William Au 
 
 # INTRO
