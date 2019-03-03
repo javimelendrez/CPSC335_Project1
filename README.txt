@@ -3,15 +3,11 @@
 # Team ECW
 
 Bennett Lawrenz
-CWID: 889955969
 Liam Fitzpatrick
-CWID: 805485463
 Javier Melendrez
-CWID:  890653041
 Siddarth Krishnan
-CWID: 890189152
 William Au 
-CWID: 888673613
+
 
 # INTRO
 This project is to write a program to display the generational progress of Wolfram's Rule-90 cellular automaton. The program will be written in Javascript with an HTML web page for display. The cella "growth generations" will be shown in a 2D grid of black and white cells. Each row after the top will show the next generation.
